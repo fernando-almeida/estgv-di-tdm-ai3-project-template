@@ -17,11 +17,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MaterialLayoutComponent
+    MaterialLayoutComponent,
+    NavBarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
