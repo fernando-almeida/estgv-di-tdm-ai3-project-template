@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~8.2.7",
     "@angular/platform-browser-dynamic": "~8.2.7",
     "@angular/router": "~8.2.7",
+    "@auth0/auth0-spa-js": "^1.6.0",
     "hammerjs": "^2.0.8",
     "query-string": "^6.8.3",
     "random-int": "^2.0.1",
