@@ -1,0 +1,180 @@
+openapi: "3.0.0"
+info:
+  description: "AI3 Open API Specification"
+  version: "1.0.0"
+  title: "AI3 Open API Specification"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "ai3@tdm.estgv.ipv.pt"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+servers:
+  - url: "http://localhost:3000/api"
+    description: "Local API server"
+tags:
+- name: "Users"
+  description: "User management operations"
+
+paths:
+  /users:
+    get:
+      tags:
+        - Users
+      summary: List users using an optional filter
+      description: List all users using an optional filter. EXTENDED
+      parameters:
+        - in: query
+          name: searchText
+          schema:
+            type: string
+          description: General text to search
+        - in: query
+          name: nameContains
+          schema:
+            type: string
+          description: Text contained in the name
+        - in: query
+          name: emailContains
+          schema:
+            type: string
+          description: Text contained in the email
+      responses:
+        '200':
+          description: List of users matching the optional filter
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserList'
+        '500':
+          description: Unexpected server error
+    post:
+      tags:
+        - Users
+      summary: Create a new user
+      requestBody:
+        description: Data to create the user with
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserCreate'
+      responses:
+        '201':
+          description: Newly created user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid request (eg. bad parameter values)
+        '500':
+          description: Unexpected server error
+  /users/{userId}:
+    get:
+      tags:
+        - Users
+      summary: Get info of a given user
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The user ID
+      responses:
+        '200':
+          description: User info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '404':
+          description: User not found
+        '500':
+          description: Unexpected server error
+    put:
+      tags:
+        - Users
+      summary: Update a given user
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The user ID
+      requestBody:
+        description: Data to update the user with
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserUpdate'
+      responses:
+        '200':
+          description: Update user data
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '400':
+          description: Invalid request (eg. bad parameter values)
+        '404':
+          description: User not found
+        '500':
+          description: Unexpected server error
+    delete:
+      tags:
+        - Users
+      summary: Delete a given user
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: integer
+            minimum: 1
+          description: The user ID
+      responses:
+        '200':
+          description: Successfully deleted
+        '404':
+          description: User not found
+        '500':
+          description: Unexpected server error
+
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+    UserCreate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+      required:
+        - name
+        - email
+    UserUpdate:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+    UserList:
+      type: array
+      items:
+        $ref: "#/components/schemas/User"
