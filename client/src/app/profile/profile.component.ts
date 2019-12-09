@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
-
+  profile:any
   constructor(public auth: AuthService) { }
 
   ngOnInit() {

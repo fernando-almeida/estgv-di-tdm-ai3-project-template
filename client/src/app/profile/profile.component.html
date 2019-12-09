@@ -1,3 +1,15 @@
+<h1>Profile</h1>
 <pre *ngIf="auth.userProfile$ | async as profile">
-    <code>{{ profile | json }}</code>
-    </pre>
+    <div class="row">
+        <div>
+            <img class="rounded-circle" style="width:50%" src="{{profile.picture}}">
+        </div>
+        <div >
+                <h3>{{profile.nickname}}</h3>
+                <p>Email:{{profile.name}}</p>
+        </div>
+    </div>
+    
+    
+   
+</pre>
