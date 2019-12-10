@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
+import { HomeComponent } from './Home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
+    component: HomeComponent,
     redirectTo: '',
     pathMatch: 'full'
   }
