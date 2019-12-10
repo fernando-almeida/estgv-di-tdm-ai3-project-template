@@ -15,6 +15,7 @@
     "@server": "dist/Server"
   },
   "dependencies": {
+    "@sendgrid/mail": "^6.4.0",
     "cookie-parser": "^1.4.4",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
