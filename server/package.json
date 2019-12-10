@@ -15,6 +15,8 @@
     "@server": "dist/Server"
   },
   "dependencies": {
+    "@types/auth0": "^2.9.23",
+    "auth0": "^2.20.0",
     "cookie-parser": "^1.4.4",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
@@ -22,6 +24,7 @@
     "http-status-codes": "^1.4.0",
     "module-alias": "^2.2.2",
     "morgan": "^1.9.1",
+    "save-dev": "0.0.1-security",
     "winston": "^3.2.1"
   },
   "devDependencies": {
