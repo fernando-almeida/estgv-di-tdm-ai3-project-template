@@ -20,6 +20,8 @@ import { MaterialLayoutComponent } from './material-layout/material-layout.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomeComponent } from './Home/home.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LogintesteComponent } from './loginteste/loginteste.component';
+import { RegistarComponent } from './registar/registar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { ProfileComponent } from './profile/profile.component';
     MaterialLayoutComponent,
     NavBarComponent,
     ProfileComponent,
-    HomeComponent
+    HomeComponent,
+    LogintesteComponent,
+    RegistarComponent
   ],
   imports: [
     BrowserModule,

@@ -15,6 +15,12 @@
                     <a class="nav-link" href="#" (click)="auth.login()" *ngIf="!auth.loggedIn">Log In</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" routerLink="loginteste" *ngIf="!auth.loggedIn">Entrar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="registar" *ngIf="!auth.loggedIn">Registar</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
                 </li>
                 <li class="nav-item">

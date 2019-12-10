@@ -4,6 +4,8 @@ import { MaterialLayoutComponent } from './material-layout/material-layout.compo
 import { HomeComponent } from './Home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
+import {LogintesteComponent} from './loginteste/loginteste.component'
+import{RegistarComponent} from './registar/registar.component'
 
 const routes: Routes = [
   {
@@ -28,6 +30,14 @@ const routes: Routes = [
     path: 'profile',
     component: ProfileComponent,
     canActivate: [AuthGuard]
+  }
+  ,{
+    path: 'loginteste',
+    component:  LogintesteComponent
+  }
+  ,{
+    path: 'registar',
+    component:  RegistarComponent
   }
 ];
 
