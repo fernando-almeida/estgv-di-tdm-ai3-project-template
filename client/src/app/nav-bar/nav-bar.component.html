@@ -20,6 +20,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="material-layout" *ngIf="auth.loggedIn">material-layout</a>
+                </li>
 
             </ul>
 
