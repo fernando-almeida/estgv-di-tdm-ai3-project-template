@@ -15,6 +15,7 @@ export class UserCreateComponent implements OnInit {
   userForm = this.formBuilder.group({
     name: [null, [Validators.required, Validators.maxLength(50)]],
     email: [null, [Validators.required, Validators.email, Validators.maxLength(50)]],
+    password: [null, [Validators.required, Validators.maxLength(50)]],
   });
 
   /**
