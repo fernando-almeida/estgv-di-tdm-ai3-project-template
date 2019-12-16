@@ -19,13 +19,15 @@ import { AppComponent } from './app.component';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialLayoutComponent,
     NavBarComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
