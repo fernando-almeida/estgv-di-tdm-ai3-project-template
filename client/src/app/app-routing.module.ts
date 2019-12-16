@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
 import { HomeComponent } from './Home/home.component';
@@ -7,6 +7,7 @@ import { AuthGuard } from './auth.guard';
 import {LogintesteComponent} from './loginteste/loginteste.component'
 import{RegistarComponent} from './registar/registar.component'
 import{MudarPassComponent} from './mudar-pass/mudar-pass.component'
+import{EmailComponent} from './email/email.component'
 
 const routes: Routes = [
   {
@@ -43,6 +44,11 @@ const routes: Routes = [
   ,{
     path: 'mudarpass',
     component: MudarPassComponent
+  }
+  ,
+  {
+    path: 'email',
+    component: EmailComponent
   }
 ];
 

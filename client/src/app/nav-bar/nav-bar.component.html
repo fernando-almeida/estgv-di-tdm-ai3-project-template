@@ -21,6 +21,9 @@
                     <a class="nav-link" routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" routerLink="email" *ngIf="auth.loggedIn">Mandar email</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="#" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a>
                 </li>
                 <li class="nav-item">
