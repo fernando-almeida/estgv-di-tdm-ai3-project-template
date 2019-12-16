@@ -6,7 +6,6 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import {LogintesteComponent} from './loginteste/loginteste.component'
 import{RegistarComponent} from './registar/registar.component'
-import{MudarPassComponent} from './mudar-pass/mudar-pass.component'
 
 const routes: Routes = [
   {
@@ -39,10 +38,6 @@ const routes: Routes = [
   ,{
     path: 'registar',
     component:  RegistarComponent
-  }
-  ,{
-    path: 'mudarpass',
-    component: MudarPassComponent
   }
 ];
 
