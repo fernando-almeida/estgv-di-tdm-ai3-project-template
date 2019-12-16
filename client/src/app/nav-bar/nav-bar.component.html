@@ -1,9 +1,10 @@
-<header class="navbar_">
-  <div>
-    <button (click)="auth.login()" *ngIf="!auth.loggedIn">Log In with Auth0 </button>
-    <button routerLink="/login" class="btn botoesmenu"> LOGIN </button>
-    <button (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</button>
-    <a routerLink="/">Home</a>&nbsp;
+<header class="navbar">
+  <div class="divpricipal">
+    <button (click)="auth.login()" *ngIf="!auth.loggedIn" class="btn botoesmenu"> &nbsp; Log In with Auth0 &nbsp;
+    </button>
+    <button routerLink="/login" class="btn botoesmenu"> &nbsp; LOGIN &nbsp; </button>
+    <button (click)="auth.logout()" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Log Out &nbsp; </button>
+    <button routerLink="/" class="btn botoesmenu"> &nbsp; HOME &nbsp; </button>
   </div>
   <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
 </header>

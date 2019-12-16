@@ -1,15 +1,21 @@
-.navbar_ {
-  background-color: blue;
-  height: 80px;
+.navbar {
+  background-color: rgb(210, 255, 235);
+  height: 150px;
 }
 
-
 .botoesmenu {
-  background-color: khaki;
-  width: 100px;
-  height: 30px;
-  color: black;
+  background-color: rgb(158, 255, 206);
+  width: max-content;
+  height: 50px;
+  color: rgb(90, 90, 90);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
+  border-radius: 5px;
+  border: none;
+}
+
+.divpricipal {
+  padding-top: 50px;
+  padding-left: 525px;
 }

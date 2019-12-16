@@ -27,7 +27,7 @@ import { LoginComponent } from './login/login.component';
     MaterialLayoutComponent,
     NavBarComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
