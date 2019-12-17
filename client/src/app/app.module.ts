@@ -20,6 +20,7 @@ import { MaterialLayoutComponent } from './material-layout/material-layout.compo
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { LoginComponent } from './login/login.component';
     NavBarComponent,
     ProfileComponent,
     LoginComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

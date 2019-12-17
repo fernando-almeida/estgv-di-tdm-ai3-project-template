@@ -4,7 +4,7 @@
     </button>
     <button routerLink="/login" class="btn botoesmenu"> &nbsp; LOGIN &nbsp; </button>
     <button (click)="auth.logout()" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Log Out &nbsp; </button>
-    <button routerLink="/" class="btn botoesmenu"> &nbsp; HOME &nbsp; </button>
+    <button routerLink="/home" class="btn botoesmenu"> &nbsp; HOME &nbsp; </button>
+    <button routerLink="/profile" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Profile &nbsp; </button>
   </div>
-  <a routerLink="profile" *ngIf="auth.loggedIn">Profile</a>
 </header>
