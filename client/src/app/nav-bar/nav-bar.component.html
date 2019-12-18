@@ -2,9 +2,13 @@
   <div class="divpricipal">
     <button (click)="auth.login()" *ngIf="!auth.loggedIn" class="btn botoesmenu"> &nbsp; Log In with Auth0 &nbsp;
     </button>
-    <button routerLink="/login" class="btn botoesmenu"> &nbsp; LOGIN &nbsp; </button>
+    <button routerLink="/login" *ngIf="!auth.loggedIn" class="btn botoesmenu"> &nbsp; Login &nbsp; </button>
     <button (click)="auth.logout()" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Log Out &nbsp; </button>
-    <button routerLink="/home" class="btn botoesmenu"> &nbsp; HOME &nbsp; </button>
-    <button routerLink="/profile" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Profile &nbsp; </button>
+    <button routerLink="/home" class="btn botoesmenu"> &nbsp; Home &nbsp; </button>
+    <button routerLink="/profile" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Perfil &nbsp; </button>
+    <button routerLink="/registar" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Registar &nbsp; </button>
+    <button routerLink="/enviar-mensagem" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Enviar Mensagem &nbsp;
+    </button>
+    <button routerLink="/contactos" *ngIf="auth.loggedIn" class="btn botoesmenu"> &nbsp; Contactos &nbsp; </button>
   </div>
 </header>

@@ -21,6 +21,9 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { ContactosComponent } from './contactos/contactos.component';
+import { RegistarComponent } from './registar/registar.component';
+import { EnviarMensagemComponent } from './enviar-mensagem/enviar-mensagem.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +33,9 @@ import { HomeComponent } from './home/home.component';
     ProfileComponent,
     LoginComponent,
     HomeComponent,
+    ContactosComponent,
+    RegistarComponent,
+    EnviarMensagemComponent,
   ],
   imports: [
     BrowserModule,

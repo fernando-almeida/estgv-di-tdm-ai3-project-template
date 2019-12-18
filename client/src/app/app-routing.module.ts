@@ -4,6 +4,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component'
+import { ContactosComponent } from './contactos/contactos.component';
+import { RegistarComponent } from './registar/registar.component';
+import { EnviarMensagemComponent } from './enviar-mensagem/enviar-mensagem.component';
 
 const routes: Routes = [
   {
@@ -28,6 +31,21 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+
+  {
+    path: 'registar',
+    component: RegistarComponent
+  },
+
+  {
+    path: 'contactos',
+    component: ContactosComponent
+  },
+
+  {
+    path: 'enviar-mensagem',
+    component: EnviarMensagemComponent
   },
 
   {
