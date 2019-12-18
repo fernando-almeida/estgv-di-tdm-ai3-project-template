@@ -3,7 +3,7 @@
   height: 150px;
 }
 
-.botoesmenu {
+/*.botoesmenu {
   background-color: rgb(158, 255, 206);
   width: max-content;
   height: 50px;
@@ -16,6 +16,41 @@
   //border-color: rgb(90, 90, 90);
   //border-style: solid;
   margin: 5px;
+  cursor: pointer;
+}*/
+
+.button {
+  background-color: rgb(158, 255, 206);
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.btnmenu {
+  background-color: rgb(158, 255, 206);
+  border: none;
+  color: rgb(90, 90, 90);
+  width: max-content;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  height: 50px;
+  margin: 5px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.btnmenu:hover {
+  background-color: rgb(255, 255, 255);
+  color: rgb(90, 90, 90);
 }
 
 .divpricipal {
