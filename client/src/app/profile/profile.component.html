@@ -1,7 +1,12 @@
+<div class="divprincipal">
+  <h1 class="titulo">Perfil</h1>
+  <p>Nome:</p>
+  <p>Apelido:</p>
+  <p>Nome de Utilizador:</p>
+  <p>E-mail:</p>
+  <p>Palavra-Passe:</p>
+</div>
+
 <pre *ngIf="auth.userProfile$ | async as profile">
-    <code>{{ profile | json }}</code>
-    <div class="divprincipal">
-        <h1 class="titulo">Perfil</h1>
-        <p>home works!</p>
-    </div>
+<code>{{ profile | json }}</code>
 </pre>
