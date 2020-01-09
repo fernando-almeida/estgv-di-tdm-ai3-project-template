@@ -8,3 +8,36 @@
   font-size: 30px;
   color: rgb(90, 90, 90);
 }
+
+.btnenviar {
+  background-color: rgb(255, 255, 255);
+  color: rgb(90, 90, 90);
+  border: 2px solid rgb(158, 255, 206);
+  width: 100px;
+  height: 50px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.btnenviar:hover {
+  background-color: rgb(158, 255, 206);
+  color: rgb(90, 90, 90);
+}
+
+.btncancelar {
+  background-color: rgb(255, 255, 255);
+  color: rgb(90, 90, 90);
+  border: 2px solid rgb(158, 255, 206);
+  width: 100px;
+  height: 50px;
+  margin-left: 10px;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+.btncancelar:hover {
+  background-color: rgb(158, 255, 206);
+  color: rgb(90, 90, 90);
+}
