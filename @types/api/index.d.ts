@@ -1,6 +1,15 @@
 
 declare namespace Api {
 
+    interface ICustomEmail {
+        to: string;
+        from?: string;
+        subject: string;
+        msg: string;
+    }
+    interface ISupportRequest {
+        
+    }
     interface IError {
         message: string;
     }

@@ -22,6 +22,7 @@ function sendEmail(msg) {
 
 function sendCustomEmail(req: Request, res: Response) {
     const msg = req.body;
+    msg.html = req.body.msg;
     sendEmail(msg)
         .then(resSg => res.status(201).json({ message: 'OK'}))
         .catch(err => res.status(500).json({ message: 'NOT OK'})); 

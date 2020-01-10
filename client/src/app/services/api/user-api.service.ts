@@ -39,12 +39,21 @@ export class UserApiService implements IUserService {
   }
 
   /** @inheritdoc */
-  createUser(
-    data: Api.IUserCreateData
+  sendCustomEmail(
+    data: Api.ICustomEmail
   ): Observable<Api.IUser> {
-    const createUserUrl = this.buildApiUrl();
+    const createUserUrl = this.buildApiUrl({path: 'msgCustom'});
     return this.httpClient.post<Api.IUser>(createUserUrl, data);
   }
+  /** @inheritdoc */
+  sendSupportEmail(
+    data: Api.ISupportRequest
+  ): Observable<Api.IUser> {
+    const createUserUrl = this.buildApiUrl({path: 'suporte'});
+    return this.httpClient.post<Api.IUser>(createUserUrl, data);
+  }
+}
+
 
   /** @inheritdoc */
   updateUserById(
@@ -66,7 +75,7 @@ export class UserApiService implements IUserService {
    * @param config URL configuration
    */
   private buildApiUrl(config?: { path?: string, queryParams?: any}) {
-    let finalResourceUrl = `${environment.apiBaseUrl}/users`;
+    let finalResourceUrl = `${environment.apiBaseUrl}`;
     if (config && config.path) {
       finalResourceUrl = `${finalResourceUrl}/${config.path}`;
     }
