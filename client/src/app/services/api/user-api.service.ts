@@ -52,10 +52,8 @@ export class UserApiService implements IUserService {
     const createUserUrl = this.buildApiUrl({path: 'suporte'});
     return this.httpClient.post<Api.IUser>(createUserUrl, data);
   }
-}
 
-
-  /** @inheritdoc */
+    /** @inheritdoc */
   updateUserById(
     userId: number,
     data: any
@@ -69,7 +67,6 @@ export class UserApiService implements IUserService {
     const deleteUserUrl = this.buildApiUrl({ path: userId.toString() });
     return this.httpClient.delete<void>(deleteUserUrl);
   }
-
   /**
    * Build API resource URL
    * @param config URL configuration
@@ -83,4 +80,14 @@ export class UserApiService implements IUserService {
       ? `${finalResourceUrl}?${queryString.stringify(config.queryParams)}`
       : finalResourceUrl;
   }
+
+  createUser(data: Api.IUserCreateData): Observable<Api.IUser> {
+    const createUser = this.buildApiUrl({path: data.email.toString() }); //
+    return this.httpClient.put<Api.IUser>(createUser, data);
+  }
 }
+
+
+
+  
+
