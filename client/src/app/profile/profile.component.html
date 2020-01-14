@@ -1,12 +1,32 @@
 <div class="divprincipal">
   <h1 class="titulo">Perfil</h1>
   <p>Nome:</p>
-  <p>Apelido:</p>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile.name | json }}</code>
+  </pre>
   <p>Nome de Utilizador:</p>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile.nickname | json }}</code>
+  </pre>
+  <p>Foto:</p>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile.picture | json }}</code>
+  </pre>
   <p>E-mail:</p>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile.email | json }}</code>
+  </pre>
+  <p>Verificação de E-mail:</p>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile.email_verified | json }}</code>
+  </pre>
+  <p>Atualizado em:</p>
+  <pre *ngIf="auth.userProfile$ | async as profile">
+    <code>{{ profile.updated_at | json }}</code>
+  </pre>
   <p>Palavra-Passe:</p>
 </div>
 
-<pre *ngIf="auth.userProfile$ | async as profile">
-<code>{{ profile | json }}</code>
-</pre>
+<!--<pre *ngIf="auth.userProfile$ | async as profile">
+<code>{{ profile.name | json }}</code>
+</pre>-->
