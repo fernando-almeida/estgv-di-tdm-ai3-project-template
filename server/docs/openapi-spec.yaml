@@ -290,7 +290,7 @@ components:
           type: string
         middle_name:
           type: string
-        nickname":
+        nickname:
           type: string
         preferred_username:
           type: string
