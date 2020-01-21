@@ -1,24 +1,14 @@
 
+import { UserDao } from '@daos';
+import { buildApiErrorMessage, logger, paramMissingError } from '@shared';
 import { Request, Response, Router } from 'express';
 import { BAD_REQUEST, CREATED, OK } from 'http-status-codes';
-
-import { UserDao } from '@daos';
-import { logger, paramMissingError } from '@shared';
-
 import { IUserDao } from '../daos/User/UserDao';
+
 
 const USER_ID_HTTP_PARAM_NAME = 'userId';
 const USER_ID_HTTP_ROUTE_PARAM = `:${USER_ID_HTTP_PARAM_NAME}(\\d+)`;
 
-/**
- * Build API error message
- * @param message Message
- */
-function buildApiErrorMessage(message: string) {
-    return {
-        message,
-    } as Api.IError;
-}
 /**
  * Get user identifier from path
  * @param req Request
