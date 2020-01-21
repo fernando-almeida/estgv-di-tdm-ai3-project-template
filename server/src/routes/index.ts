@@ -13,6 +13,5 @@ router.use('/communication', CommunicationRouter);
 router.use('/support', SupportRouter);
 router.use('/account', AccountRouter);
 
-
 // Export the base-router
 export default router;

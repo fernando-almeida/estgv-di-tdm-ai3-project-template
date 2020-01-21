@@ -1,6 +1,8 @@
 import { NextFunction } from 'connect';
 import cookieParser from 'cookie-parser';
 import express, { Request, Response } from 'express';
+import { UnauthorizedError } from 'express-jwt';
+import { INTERNAL_SERVER_ERROR, NOT_FOUND, UNAUTHORIZED } from 'http-status-codes';
 import logger from 'morgan';
 import path from 'path';
 // tslint:disable-next-line: no-var-requires
@@ -8,6 +10,30 @@ import swaggerUi, { SwaggerOptions } from 'swagger-ui-express';
 // tslint:disable-next-line: no-var-requires
 import YAML from 'yamljs';
 import BaseRouter from './routes';
+import { buildApiErrorMessage } from './shared/index';
+
+// Augment request definition
+interface IUser {
+  email: string;
+}
+interface IJwtTokenAuth0 {
+  iss: string;
+  sub: string;
+  aud: string | string[];
+  iat: number;
+  exp: number;
+  azp: string;
+  scope: string;
+}
+
+declare global {
+  namespace Express {
+    // tslint:disable-next-line
+    interface Request {
+        user?: IJwtTokenAuth0;
+    }
+  }
+}
 
 /**
  * Handle invalid API endpoint
@@ -17,24 +43,41 @@ import BaseRouter from './routes';
  * @param next Next middleware
  */
 function handleInvalidApiEndpoint(
-  err: Error,
   req: Request,
   res: Response,
-  next: NextFunction
+  next: NextFunction,
 ) {
   // tslint:disable-next-line
-  console.error(err.stack);
-  res.status(404).send('API endpoint does not exist!');
+  res.status(NOT_FOUND).send('API endpoint does not exist!');
 }
 
+/**
+ * Handle exceptions
+ * @param error Error
+ * @param req Request
+ * @param res Reponse
+ * @param next Next middleware
+ */
+function handleError(error: Error, req: Request, res: Response, next: NextFunction) {
+  if (error instanceof UnauthorizedError) {
+    return res.status(UNAUTHORIZED).json(buildApiErrorMessage(error.message));
+  }
+  return res.status(INTERNAL_SERVER_ERROR).json(buildApiErrorMessage(error.message));
+}
+
+/**
+ * Configure API documentation
+ * @param expressApp Express app
+ */
 function configureApiDocumentation(expressApp: express.Express) {
+  // TODO: Validate that env vars have proper values
   const swaggerOptions: SwaggerOptions = {
     validatorUrl: null,
     oauth: {
-      clientId: 'your-client-id1',
-      clientSecret: 'your-client-secret-if-required1',
-      realm: 'your-realms1',
-      appName: 'your-app-name1',
+      clientId: process.env.AUTH0_CLIENT_ID,
+      clientSecret: process.env.AUTH0_CLIENT_SECRET,
+      realm: process.env.AUTH0_REALM,
+      appName: process.env.AUTH0_APP_NAME,
       scopeSeparator: ',',
       additionalQueryStringParams: {}
     }
@@ -88,6 +131,9 @@ configureApiDocumentation(app);
 app.get('*', (req: Request, res: Response) => {
   res.sendFile('index.html', { root: staticDir });
 });
+app.use(handleInvalidApiEndpoint); // Will never be called because of the previos middleware
+
+app.use(handleError);
 
 // Export express instance
 export default app;
