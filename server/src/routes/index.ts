@@ -18,20 +18,6 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 return sgMail.send(msg);
 }
 
-function sendCustomEmail(req: Request, res: Response) {
-    const msg = req.body;
-    sendEmail(msg)
-        .then(resSg => res.status(201).json({ message: 'OK'}))
-        .catch(error => res.status(500).json({ message: 'NOK'}));
-}
-function sendSupportEmail(req: Request, res: Response) {
-    const msg = req.body;
-    msg.to = 'sdfsdfsdfsdfds';
-    sendEmail(msg)
-        .then(resSg => res.status(201).json({ message: 'OK'}))
-        .catch(error => res.status(500).json({ message: 'NOK'}));
-}
-
 // Init router and path
 const router = Router();
 
