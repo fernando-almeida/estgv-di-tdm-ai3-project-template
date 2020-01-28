@@ -12,7 +12,6 @@ const router = Router();
  */
 async function handleSendEmail(req: Request, res: Response) {
     // TODO: Handle sending of email via SendGrid
-    
     res.status(INTERNAL_SERVER_ERROR)
         .send(buildApiErrorMessage('Not implemented'));
 }
