@@ -13,29 +13,30 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { environment } from '../environments/environment';
+import { ApiModule } from './api-client/api.module';
+import { Configuration, ConfigurationParameters } from './api-client/configuration';
+import { BASE_PATH } from './api-client/variables';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginFormComponent } from './login-form/login-form.component';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
-import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { ContactosComponent } from './contactos/contactos.component';
-import { RegistarComponent } from './registar/registar.component';
-import { EnviarMensagemComponent } from './enviar-mensagem/enviar-mensagem.component';
+
+/**
+ * Build API configuration
+ */
+function buildApiConfiguration() {
+  const configurationParameters: ConfigurationParameters = {};
+  // TODO: Token should be injected using HTTP Interceptor pattern (@see link in Moodle)
+  const config = new Configuration(configurationParameters);
+  return config;
+}
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialLayoutComponent,
-    NavBarComponent,
-    ProfileComponent,
-    LoginComponent,
-    HomeComponent,
-    ContactosComponent,
-    RegistarComponent,
-    EnviarMensagemComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -52,9 +53,13 @@ import { EnviarMensagemComponent } from './enviar-mensagem/enviar-mensagem.compo
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    ApiModule.forRoot(buildApiConfiguration),
   ],
-  providers: [],
+  providers: [
+    // Hard-coded on API *Service classes but can be overriden here
+    { provide: BASE_PATH, useValue: environment.apiBaseUrl },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
