@@ -118,6 +118,4 @@ declare namespace Api {
         subject: string;
         message: string;
     }
-
-
 }
