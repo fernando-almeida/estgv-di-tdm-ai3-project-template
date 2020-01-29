@@ -7,8 +7,10 @@ import { HomeComponent } from './home/home.component'
 import { ContactosComponent } from './contactos/contactos.component';
 import { RegistarComponent } from './registar/registar.component';
 import { EnviarMensagemComponent } from './enviar-mensagem/enviar-mensagem.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
 
 const routes: Routes = [
+
   {
     path: 'users',
     loadChildren: () => import('./users/users.module').then(module => module.UsersModule)
@@ -18,6 +20,13 @@ const routes: Routes = [
     redirectTo: '',
     pathMatch: 'full'
   },
+
+  {
+    path: 'nav-bar',
+    component: NavBarComponent
+  },
+  
+
   {
     path: 'profile',
     component: ProfileComponent
