@@ -105,5 +105,19 @@ declare namespace Api {
         message: string;
     }
 
+    interface ISupportRequest {
+        from?: string;
+        to: string;
+        subject: string;
+        message: string;
+    }
+
+    interface ICustomEmail{
+        from?: string;
+        to: string;
+        subject: string;
+        message: string;
+    }
+
 
 }
