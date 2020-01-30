@@ -2,12 +2,12 @@
   <div class="divpricipal">
     <button (click)="auth.login()" *ngIf="!auth.loggedIn" class="btn btnmenu"> &nbsp; Log In with Auth0 &nbsp; </button>
     <button routerLink="/login" *ngIf="!auth.loggedIn" class="btn btnmenu"> &nbsp; Login &nbsp; </button>
-    <button (click)="auth.logout()" *ngIf="auth.loggedIn" class="btn btnmenu"> &nbsp; Log Out &nbsp; </button>
     <button routerLink="/home" class="btn btnmenu"> &nbsp; Home &nbsp; </button>
     <button routerLink="/profile" *ngIf="auth.loggedIn" class="btn btnmenu"> &nbsp; Perfil &nbsp; </button>
     <button routerLink="/registar" *ngIf="auth.loggedIn" class="btn btnmenu"> &nbsp; Registar &nbsp; </button>
     <button routerLink="/enviar-mensagem" *ngIf="auth.loggedIn" class="btn btnmenu"> &nbsp; Enviar Mensagem &nbsp;
     </button>
     <button routerLink="/contactos" *ngIf="auth.loggedIn" class="btn btnmenu"> &nbsp; Contactos &nbsp; </button>
+    <button (click)="auth.logout()" *ngIf="auth.loggedIn" class="btn btnmenu"> &nbsp; Log Out &nbsp; </button>
   </div>
 </header>
