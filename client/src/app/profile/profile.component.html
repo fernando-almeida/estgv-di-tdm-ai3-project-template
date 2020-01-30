@@ -12,7 +12,7 @@
 <<<<<<< HEAD
 =======
   <pre class="dados" *ngIf="auth.userProfile$ | async as profile">
-    <img src="{{profile.picture}}">
+    <code>{{ profile.picture | json }}</code>
   </pre>
 >>>>>>> 145c985af6fa76b0e7e7ed0c0bb06f14f096f223
   <p class="textos">E-mail:</p>
