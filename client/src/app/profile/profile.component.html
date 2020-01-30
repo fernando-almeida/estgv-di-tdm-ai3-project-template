@@ -10,7 +10,7 @@
   </pre>
   <p class="textos">Foto:</p>
   <pre class="dados" *ngIf="auth.userProfile$ | async as profile">
-    <img src="{{profile.picture}}">
+    <code>{{ profile.picture | json }}</code>
   </pre>
   <p class="textos">E-mail:</p>
   <pre class="dados" *ngIf="auth.userProfile$ | async as profile">
