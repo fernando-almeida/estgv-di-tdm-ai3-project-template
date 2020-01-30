@@ -21,6 +21,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { ProfileComponent } from './profile/profile.component';
+import { LoginComponent } from './login/login.component';
+import { HomeComponent } from './home/home.component';
+import { RegistarComponent } from './registar/registar.component';
+import { ContactosComponent } from './contactos/contactos.component';
+import { EnviarMensagemComponent } from './enviar-mensagem/enviar-mensagem.component';
 /**
  * Build API configuration
  */
@@ -37,6 +44,13 @@ function buildApiConfiguration() {
     AppComponent,
     MaterialLayoutComponent,
     LoginFormComponent,
+    NavBarComponent,
+    ProfileComponent,
+    LoginComponent,
+    HomeComponent,
+    RegistarComponent,
+    ContactosComponent,
+    EnviarMensagemComponent
   ],
   imports: [
     BrowserModule,
