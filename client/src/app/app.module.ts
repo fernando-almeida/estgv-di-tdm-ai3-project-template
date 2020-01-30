@@ -21,6 +21,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { MaterialLayoutComponent } from './material-layout/material-layout.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import {HomeComponent} from './Home/home.component';
+import {ProfileComponent} from './profile/profile.component';
+import {LogintesteComponent} from './loginteste/loginteste.component';
+import {RegistarComponent} from './registar/registar.component';
+import {MudarPassComponent} from './mudar-pass/mudar-pass.component';
+import {EmailComponent} from './email/email.component';
+
 
 /**
  * Build API configuration
@@ -36,7 +44,15 @@ function buildApiConfiguration() {
   declarations: [
     AppComponent,
     MaterialLayoutComponent,
-    LoginFormComponent
+    NavBarComponent,
+    HomeComponent,
+    LoginFormComponent,
+    ProfileComponent,
+    LogintesteComponent,
+    RegistarComponent,
+    MudarPassComponent,
+    EmailComponent
+    
   ],
   imports: [
     BrowserModule,

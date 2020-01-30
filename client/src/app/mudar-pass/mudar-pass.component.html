@@ -1,26 +1,26 @@
 <br><br>
 <h2>Mudar Password</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-        <label for="password">Nova Password</label>
-        <input type="password" formControlName="password" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
+<form [formGroup]="changePasswordForm" (ngSubmit)="changePassword(changePasswordForm.value)">
+    <div class="form-group"
+        [ngClass]="{'has-error':!changePasswordForm.controls['old_password'].valid && changePasswordForm.controls['old_password'].touched}">
+        <label for="old_password">Old Password</label>
+        <input type="password" name="old_password" class="form-control" id="oldPassword" placeholder="Old Password"
+            [formControl]="changePasswordForm.controls['old_password']" />
+        <small
+            *ngIf="changePasswordForm.controls['old_password'].hasError('required') && changePasswordForm.controls['old_password'].touched"
+            class="text-danger">Old Password Required</small>
     </div>
-    <div class="form-group">
-        <label for="password">Confirmar Password</label>
-        <input type="password" formControlName="password" class="form-control"
-            [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-            <div *ngIf="f.password.errors.required">Password is required</div>
-        </div>
+    <div class="form-group"
+        [ngClass]="{'has-error':!changePasswordForm.controls['new_password'].valid && changePasswordForm.controls['new_password'].touched}">
+        <label for="new_password">New Password</label>
+        <input type="password" name="new_password" class="form-control" id="newPassword" placeholder="New Password"
+            [formControl]="changePasswordForm.controls['new_password']" />
+        <small
+            *ngIf="changePasswordForm.controls['new_password'].hasError('required') && changePasswordForm.controls['new_password'].touched"
+            class="text-danger">New Password Required</small>
     </div>
-    <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary">Enter</button>
-        <img *ngIf="loading" class="pl-3"
-            src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
 
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-default" [disabled]="!changePasswordForm.valid">Change Password</button>
     </div>
 </form>
