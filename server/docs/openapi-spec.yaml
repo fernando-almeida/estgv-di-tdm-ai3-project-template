@@ -1,0 +1,373 @@
+openapi: '3.0.2'
+info:
+  description: 'AI3 Open API Specification'
+  version: '1.0.0'
+  title: 'AI3 Open API Specification'
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: 'ai3@tdm.estgv.ipv.pt'
+  license:
+    name: 'Apache 2.0'
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+servers:
+  - url: 'http://localhost:3000/api'
+    description: 'Local API server'
+tags:
+  - name: 'Communication'
+    description: 'Communication operations'
+  - name: 'Account'
+    description: 'Current user operations'
+  - name: 'Support'
+    description: 'Support operations'
+
+paths:
+  /account/register:
+    post:
+      tags:
+        - Account
+      summary: Register a new user
+      requestBody:
+        description: Data to register the user with
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: User registered
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RegisterResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /account/login:
+    post:
+      tags:
+        - Account
+      summary: Authenticate a user
+      requestBody:
+        description: Request to authenticate as a user with credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Successful authentication
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Bad request
+
+  /account/logout:
+    get:
+      tags:
+        - Account
+      summary: Logout a user
+      description: Logout a user
+      security:
+        - auth0: []
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+  /account/change_password:
+    post:
+      tags:
+        - Account
+      summary: Change password of the user with a given
+      description: Change password of the user with a given
+      requestBody:
+        description: Request to change a user's password
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChangePasswordRequest'
+      responses:
+        '202':
+          description: Password reset email sent.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChangePasswordResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /account/profile:
+    get:
+      tags:
+        - Account
+      summary: Get user profile
+      description: Get user profile
+      security:
+        - auth0: []
+      responses:
+        '200':
+          description: User profile info
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserProfile'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /account/preferences:
+    put:
+      tags:
+        - Account
+      summary: Update the current user preferencees
+      requestBody:
+        description: Data to update the user with
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPreferencesChangeRequest'
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContent'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '404':
+          $ref: '#/components/responses/NotFound'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /support/ticket:
+    post:
+      summary: Submit a ticket for the app administrators
+      tags:
+        - Support
+      requestBody:
+        description: Request describing user support case
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SupportRequest'
+      responses:
+        '200':
+          $ref: '#/components/schemas/SupportResponse'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+  /communication/send_email:
+    post:
+      summary: Send an email to a custom target user
+      tags:
+        - Communication
+      requestBody:
+        description: Request describing the email to be sent
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendEmailRequest'
+      security:
+        - auth0: []
+      responses:
+        '202':
+          $ref: '#/components/responses/Accepted'
+        '400':
+          $ref: '#/components/responses/BadRequest'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '500':
+          $ref: '#/components/responses/InternalServerError'
+components:
+  securitySchemes:
+    auth0:
+      type: oauth2
+      description: This API uses OAuth 2 with the implicit grant flow.
+      flows:
+        implicit:
+          authorizationUrl: https://YOUR_TENANT_NAME_TO_REPLACE.auth0.com/oauth2/authorize
+          scopes:
+            openid: Open ID
+            profile: View user profile
+            email: View user email
+
+  responses:
+    NoContent:
+      description: No content
+    Accepted:
+      description: Forbidden
+    BadRequest:
+      description: Bad request
+    NotFound:
+      description: User not found
+    Unauthorized:
+      description: Unauthorized
+    Forbidden:
+      description: Forbidden
+    InternalServerError:
+      description: Unexpected server error
+  schemas:
+    UserPreferencesChangeRequest:
+      type: object
+      properties:
+        theme:
+          type: string
+    SendEmailRequest:
+      type: object
+      properties:
+        from:
+          type: string
+        to:
+          type: string
+        subject:
+          type: string
+        message:
+          type: string
+      required:
+        - to
+        - subject
+        - message
+    SupportRequest:
+      type: object
+      properties:
+        email:
+          type: string
+        subject:
+          type: string
+        message:
+          type: string
+      required:
+        - email
+        - subject
+        - message
+    SupportResponse:
+      type: object
+      properties:
+        message:
+          type: string
+    LoginRequest:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+      required:
+        - username
+        - password
+    LoginResponse:
+      type: object
+      properties:
+        access_token:
+          type: string
+        token_type:
+          type: string
+        expires_in:
+          type: number
+          description: Expiration timestamp
+      required:
+        - access_token
+        - token_type
+        - expires_in
+    UserProfile:
+      type: object
+      properties:
+        sub:
+          type: string
+        name:
+          type: string
+        given_name:
+          type: string
+        family_name:
+          type: string
+        middle_name:
+          type: string
+        nickname:
+          type: string
+        preferred_username:
+          type: string
+        profile:
+          type: string
+        picture:
+          type: string
+        website:
+          type: string
+        email:
+          type: string
+        email_verified:
+          type: boolean
+        gender:
+          type: string
+        birthdate:
+          type: string
+          format: 'date'
+        zoneinfo:
+          type: string
+        locale:
+          type: string
+        phone_number:
+          type: string
+        phone_number_verified:
+          type: boolean
+        address:
+          type: object
+        updated_at:
+          type: number
+          description: Timestamp of last update
+      required:
+        - sub
+        - email
+    RegisterRequest:
+      type: object
+      properties:
+        email:
+          type: string
+          description: The user's email.
+        password:
+          type: string
+          description: The user's desired password.
+        username:
+          type: string
+          description: The user's username. Only valid if the connection requires a username.
+        given_name:
+          type: string
+          description: The user's given name(s).
+        family_name:
+          type: string
+          description: The user's family name(s).
+        name:
+          type: string
+          description: The user's full name.
+        nickname:
+          type: string
+          description: The user's nickname.
+        picture:
+          type: string
+          description: A URI pointing to the user's picture.
+        # Other properties...
+      required:
+        - email
+        - password
+    RegisterResponse:
+      type: object
+    ChangePasswordRequest:
+      type: object
+      properties:
+        email:
+          type: string
+      required:
+        - email
+    ChangePasswordResponse:
+      type: object
+      properties:
+        message:
+          type: string

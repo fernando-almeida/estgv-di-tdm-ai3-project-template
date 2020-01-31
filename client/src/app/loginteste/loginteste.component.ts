@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginRequest } from '../api_client';
+import { AccountService } from '../api_client/api/account.service';
 
 @Component({
   selector: 'app-loginteste',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogintesteComponent implements OnInit {
 
-  constructor() { }
+  constructor(private accountService: AccountService,) { }
 
   ngOnInit() {
   }
-
+  public doLogin(event: Event) {
+    const loginRequest: LoginRequest = {
+      password: "password",
+      username: "username"
+    };
+    this.accountService.accountLoginPost()
+  }
 }

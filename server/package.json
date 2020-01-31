@@ -15,7 +15,8 @@
     "@server": "dist/Server"
   },
   "dependencies": {
-    "@sendgrid/mail": "^6.4.0",
+    "@sendgrid/mail": "^6.5.1",
+    "auth0": "^2.22.0",
     "cookie-parser": "^1.4.4",
     "cross-env": "^6.0.3",
     "dotenv": "^8.2.0",
@@ -23,6 +24,7 @@
     "http-status-codes": "^1.4.0",
     "module-alias": "^2.2.2",
     "morgan": "^1.9.1",
+    "swagger-ui-express": "^4.1.3",
     "winston": "^3.2.1"
   },
   "devDependencies": {

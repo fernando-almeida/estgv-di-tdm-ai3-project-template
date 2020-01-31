@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../api_client/api/account.service';
+import { LoginRequest } from '../api_client';
 
 @Component({
   selector: 'app-login-form',
@@ -16,6 +17,15 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
+
+  public doLogin(event: Event) {
+    const loginRequest: LoginRequest = {
+      password: "password",
+      username: "username"
+    };
+    this.accountService.accountLoginPost()
+  }
 }
