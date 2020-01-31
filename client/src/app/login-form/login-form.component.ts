@@ -26,6 +26,7 @@ export class LoginFormComponent implements OnInit {
       password: "password",
       username: "username"
     };
-    this.accountService.accountLoginPost()
+    this.accountService.accountLoginPost(loginRequest)
+    
   }
 }

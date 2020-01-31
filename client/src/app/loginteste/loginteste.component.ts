@@ -13,11 +13,4 @@ export class LogintesteComponent implements OnInit {
 
   ngOnInit() {
   }
-  public doLogin(event: Event) {
-    const loginRequest: LoginRequest = {
-      password: "password",
-      username: "username"
-    };
-    this.accountService.accountLoginPost()
-  }
 }
