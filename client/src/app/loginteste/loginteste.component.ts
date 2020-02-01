@@ -9,8 +9,18 @@ import { AccountService } from '../api_client/api/account.service';
 })
 export class LogintesteComponent implements OnInit {
 
-  constructor(private accountService: AccountService,) { }
+  constructor(
+    private accountService: AccountService,) { }
 
   ngOnInit() {
+  }
+
+  public doLogin(event: Event) {
+    const loginRequest: LoginRequest = {
+      password: "password",
+      username: "username"
+    };
+    this.accountService.accountLoginPost(loginRequest)
+    
   }
 }

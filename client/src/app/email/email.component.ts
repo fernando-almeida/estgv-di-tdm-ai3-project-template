@@ -26,7 +26,7 @@ export class EmailComponent implements OnInit {
       take(1),
       flatMap(token => {
         const sendEmailData = {
-          to: 'bernardomendonca1998@gmail.com',
+          to: 'tiagofnunes9@gmail.com',
           from: 'test@example.com',
           subject: 'Sending with SendGrid is Fun',
           text: 'and easy to do anywhere, even with Node.js',
@@ -44,7 +44,10 @@ export class EmailComponent implements OnInit {
       next: res => console.log(res),
       error: res => console.error(res)
     });
-    
-  }
 
+    // using Twilio SendGrid's v3 Node.js Library
+// https://github.com/sendgrid/sendgrid-nodejs
+
+
+}
 }
