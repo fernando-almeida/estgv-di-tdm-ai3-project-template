@@ -3,14 +3,25 @@ import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../auth.service';
 import { tap, flatMap, take } from 'rxjs/operators';
 import { from } from 'rxjs';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',
   styleUrls: ['./email.component.scss']
 })
+
+
+
 export class EmailComponent implements OnInit {
 
+  sendEmailData = new FormGroup({
+    username: new FormControl(),
+    assunto: new FormControl(),
+    mensagem: new FormControl(),
+  }); 
+
+  
   constructor(
     
     private auth: AuthService,
@@ -21,6 +32,7 @@ export class EmailComponent implements OnInit {
   }
 
   sendEmail() {
+console.log(this.sendEmailData);
     this.auth.auth0Client$.pipe(
       flatMap(auth0Client => from(auth0Client.getTokenSilently())),
       take(1),
@@ -40,7 +52,7 @@ export class EmailComponent implements OnInit {
           }});
           return res$;
         }),
-    ).subscribe({
+    ).subscribe({      
       next: res => console.log(res),
       error: res => console.error(res)
     });

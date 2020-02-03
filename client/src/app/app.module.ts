@@ -28,6 +28,8 @@ import {LogintesteComponent} from './loginteste/loginteste.component';
 import {RegistarComponent} from './registar/registar.component';
 import {MudarPassComponent} from './mudar-pass/mudar-pass.component';
 import {EmailComponent} from './email/email.component';
+import { ExternalApiComponent } from './external-api/external-api.component';
+
 
 
 /**
@@ -51,7 +53,8 @@ function buildApiConfiguration() {
     LogintesteComponent,
     RegistarComponent,
     MudarPassComponent,
-    EmailComponent
+    EmailComponent,
+    ExternalApiComponent
     
   ],
   imports: [

@@ -10,7 +10,8 @@ import { AccountService } from '../api_client/api/account.service';
 export class LogintesteComponent implements OnInit {
 
   constructor(
-    private accountService: AccountService,) { }
+    private accountService: AccountService,
+    ) { }
 
   ngOnInit() {
   }
