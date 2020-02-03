@@ -19,7 +19,7 @@ export class LogintesteComponent implements OnInit {
   public doLogin(event: Event) {
     const loginRequest: LoginRequest = {
       password: "password",
-      username: "username"
+      email: "email"
     };
     this.accountService.accountLoginPost(loginRequest)
     

@@ -102,8 +102,12 @@ function configureApiDocumentation(expressApp: express.Express) {
   );
 }
 
+//const express = require('express')
+const helmet = require('helmet')
 // Init express
+
 const app = express();
+app.use(helmet())
 
 // Add middleware/settings/routes to express.
 app.use(logger('dev'));
