@@ -4,10 +4,13 @@ import { MaterialLayoutComponent } from './material-layout/material-layout.compo
 import { HomeComponent } from './Home/home.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AuthGuard } from './auth.guard';
-import {LogintesteComponent} from './loginteste/loginteste.component'
-import{RegistarComponent} from './registar/registar.component'
-import{MudarPassComponent} from './mudar-pass/mudar-pass.component'
-import{EmailComponent} from './email/email.component'
+import {LogintesteComponent} from './loginteste/loginteste.component';
+import{RegistarComponent} from './registar/registar.component';
+import{MudarPassComponent} from './mudar-pass/mudar-pass.component';
+import{EmailComponent} from './email/email.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { InterceptorService } from './interceptor.service';
+import { ExternalApiComponent } from './external-api/external-api.component';
 
 const routes: Routes = [
   {
@@ -49,11 +52,23 @@ const routes: Routes = [
   {
     path: 'email',
     component: EmailComponent
+  },
+  {
+    path: 'external-api',
+    component: ExternalApiComponent,
+    canActivate: [AuthGuard]
   }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ]
 })
 export class AppRoutingModule { }

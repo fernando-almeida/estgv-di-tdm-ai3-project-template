@@ -257,12 +257,12 @@ components:
     LoginRequest:
       type: object
       properties:
-        username:
+        email:
           type: string
         password:
           type: string
       required:
-        - username
+        - email
         - password
     LoginResponse:
       type: object

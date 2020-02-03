@@ -19,6 +19,7 @@ async function handleSendEmail(req: Request, res: Response) {
         if (fromEmail === undefined) {
             // TODO: Get user profile from Auth0 auth0 API
             const auth0AuthClient = buildAuthenticationClient();
+            
             const accessToken = getAccessToken(req);
             // TODO: User profile should be cached to avoid many calls to API in order to not get rate limited
             const userProfile = await auth0AuthClient.getProfile(accessToken);
@@ -29,7 +30,8 @@ async function handleSendEmail(req: Request, res: Response) {
             fromEmail,
             sendEmailRequest.to,
             sendEmailRequest.subject,
-            sendEmailRequest.message);
+            sendEmailRequest.message, 
+            sendEmailRequest.html);
         res.status(ACCEPTED);
     } catch (err) {
         res.status(INTERNAL_SERVER_ERROR);

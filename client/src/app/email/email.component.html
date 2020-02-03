@@ -1,17 +1,17 @@
 <h2>Enviar Email</h2>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="sendEmailData">
 
     <div class="form-group">
         <label for="username">Destinatário</label>
         <input type="text" formControlName="username" class="form-control" />
     </div>
     <div class="Assunto">
-        <label for="username">Assunto</label>
-        <input type="text" formControlName="username" class="form-control" />
+        <label for="assunto">Assunto</label>
+        <input type="text" formControlName="assunto" class="form-control" />
     </div>
     <div class="form-group">
-        <label for="exampleFormControlTextarea1">Mensagem </label>
-        <textarea class="form-control" rows="5"></textarea>
+        <label for="mensagem">Mensagem </label>
+        <textarea class="form-control" formControlName="mensagem" rows="5"></textarea>
     </div>
 
 

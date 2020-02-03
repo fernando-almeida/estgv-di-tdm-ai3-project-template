@@ -19,7 +19,8 @@ async function handleCreateSupportTicket(req: Request, res: Response) {
             supportRequest.email,
             supportEmail,
             supportRequest.subject,
-            supportRequest.message);
+            supportRequest.message,
+            supportRequest.html);
         res.status(OK);
     } catch (err) {
         res.status(INTERNAL_SERVER_ERROR);

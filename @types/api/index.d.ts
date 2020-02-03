@@ -36,11 +36,13 @@ declare namespace Api {
         to: string;
         subject: string;
         message: string;
+        html: string;
     }
     interface SupportRequest {
         email: string;
         subject: string;
         message: string;
+        html: string;
     }
 
     interface SupportResponse {
@@ -48,7 +50,7 @@ declare namespace Api {
     }
 
     interface LoginRequest {
-        username: string;
+        email: string;
         password: string;
     }
 
