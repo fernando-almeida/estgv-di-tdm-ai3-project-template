@@ -4,7 +4,7 @@
   "scripts": {
     "build": "node ./util/build.js",
     "lint": "tslint --project \"tsconfig.json\"",
-    "start": "ng serve --proxy-config proxy.conf.js",
+    "start": "ENV_FILE=production ./node_modules/cross-env/src/bin/cross-env.js node -r ./env -r module-alias/register ./dist/start.js",
     "start-dev": "nodemon --config \"./util/nodemon.json\"",
     "test": "nodemon --config \"./util/nodemon.test.json\"",
     "server": "node server.js",
