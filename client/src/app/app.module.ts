@@ -25,7 +25,7 @@ import { MaterialLayoutComponent } from './material-layout/material-layout.compo
 /**
  * Build API configuration
  */
-function buildApiConfiguration() {
+export function buildApiConfiguration() {
   const configurationParameters: ConfigurationParameters = {};
   // TODO: Token should be injected using HTTP Interceptor pattern (@see link in Moodle)
   const config = new Configuration(configurationParameters);
