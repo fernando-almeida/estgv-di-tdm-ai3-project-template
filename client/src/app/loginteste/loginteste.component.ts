@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginRequest } from '../api_client';
 import { AccountService } from '../api_client/api/account.service';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-loginteste',
@@ -9,6 +10,10 @@ import { AccountService } from '../api_client/api/account.service';
 })
 export class LogintesteComponent implements OnInit {
 
+  loginForm = new FormGroup({
+    email: new FormControl(),
+    password: new FormControl(),
+  });
   constructor(
     private accountService: AccountService,
     ) { }
