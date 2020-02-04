@@ -31,7 +31,7 @@ export class EmailComponent implements OnInit {
   ngOnInit() {
   }
 
-  sendEmail() {
+  public sendEmail() {
 console.log(this.sendEmailData);
     this.auth.auth0Client$.pipe(
       flatMap(auth0Client => from(auth0Client.getTokenSilently())),
