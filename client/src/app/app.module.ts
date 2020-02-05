@@ -29,6 +29,7 @@ import {RegistarComponent} from './registar/registar.component';
 import {MudarPassComponent} from './mudar-pass/mudar-pass.component';
 import {EmailComponent} from './email/email.component';
 import { ExternalApiComponent } from './external-api/external-api.component';
+import { PushNotificationService } from 'ngx-push-notifications';
 
 
 
@@ -78,6 +79,7 @@ function buildApiConfiguration() {
   providers: [
     // Hard-coded on API *Service classes but can be overriden here
     { provide: BASE_PATH, useValue: environment.apiBaseUrl },
+    PushNotificationService
   ],
   bootstrap: [AppComponent]
 })
