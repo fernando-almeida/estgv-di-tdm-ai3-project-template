@@ -29,4 +29,8 @@ export class LogintesteComponent implements OnInit {
     this.accountService.accountLoginPost(loginRequest)
     
   }
+  function (err) {
+    if (err) return alert('Erro: ' + err.message);
+    return alert('Sucesso')
+}
 }
