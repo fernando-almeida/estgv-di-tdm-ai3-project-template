@@ -30,8 +30,8 @@ async function handleSendEmail(req: Request, res: Response) {
             fromEmail,
             sendEmailRequest.to,
             sendEmailRequest.subject,
-            sendEmailRequest.message, 
-            sendEmailRequest.html);
+            sendEmailRequest.message,
+            );
         res.status(ACCEPTED);
     } catch (err) {
         res.status(INTERNAL_SERVER_ERROR);

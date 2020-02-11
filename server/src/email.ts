@@ -13,21 +13,15 @@ export function sendEmail(
   from: string,
   to: string,
   subject: string,
-  message: string,
-  html: string,
-) {
-  const sendGridApiKey = process.env.SENDGRID_API_KEY;
-  
-  if (sendGridApiKey === undefined) {
-      throw new Error('SENDGRID_API_KEY environment variable not defined');
-  }
-  sendGridEmailClient.setApiKey(sendGridApiKey);
-  const msg: MailData = {
-    to,
-    from,
-    subject,
-    text: message,
-    html: html,
-  };
-  return sendGridEmailClient.send(msg);
+  message: string){
+      const sgMail = require('@sendgrid/mail');
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      const msg = {
+      to: to,
+      from: from,
+      subject: subject,
+      text: message,
+      html: '<strong>'+message+'</strong>',
+      };
+      return sgMail.send(msg);
 }

@@ -1,10 +1,7 @@
-<h2>Enviar Email</h2>
-<form [formGroup]="sendEmailData">
-
+<h3>Fale Connosco:</h3>
+<form [formGroup]="supportForm">
     <p class="textos">De:</p>
-    <input class="text" type="text" name="from" value="" formControlName="from"><br>
-    <p class="textos">Para:</p>
-    <input class="text" type="text" name="to" value="" formControlName="to"><br>
+    <input class="text" type="text" name="from" value="" formControlName="email"><br>
     <p class="textos">Assunto:</p>
     <input class="text" type="text" name="subject" value="" formControlName="subject"><br>
     <p class="textos">Mensagem:</p>

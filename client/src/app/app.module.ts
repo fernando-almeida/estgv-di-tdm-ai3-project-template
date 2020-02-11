@@ -55,7 +55,7 @@ function buildApiConfiguration() {
     RegistarComponent,
     MudarPassComponent,
     EmailComponent,
-    ExternalApiComponent
+    ExternalApiComponent,
     
   ],
   imports: [

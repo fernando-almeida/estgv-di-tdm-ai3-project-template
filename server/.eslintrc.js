@@ -18,5 +18,16 @@ module.exports = {
         mocha: true
       }
     }
-  ]
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2017
+},
+
+"env": {
+    "es6": true
+},
+"parser": "esprima",
+"rules": {
+    "semi": "error"
+}
 };
