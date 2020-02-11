@@ -6,7 +6,7 @@ import { from } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-apoio',
+  selector: 'app-email',
   templateUrl: './apoio.component.html',
   styleUrls: ['./apoio.component.scss']
 })
