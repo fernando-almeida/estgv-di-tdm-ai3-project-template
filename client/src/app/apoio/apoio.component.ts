@@ -6,14 +6,14 @@ import { from } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
-  selector: 'app-email',
-  templateUrl: './email.component.html',
-  styleUrls: ['./email.component.scss']
+  selector: 'app-apoio',
+  templateUrl: './apoio.component.html',
+  styleUrls: ['./apoio.component.scss']
 })
 
 
 
-export class EmailComponent implements OnInit {
+export class ApoioComponent implements OnInit {
 
     supportForm = new FormGroup({
     username: new FormControl(),
