@@ -16,9 +16,10 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class EmailComponent implements OnInit {
 
   sendEmailData = new FormGroup({
-    username: new FormControl(),
-    assunto: new FormControl(),
-    mensagem: new FormControl(),
+    to: new FormControl(),
+    from: new FormControl(),
+    subject: new FormControl(),
+    message: new FormControl(),
   }); 
 
   
@@ -42,7 +43,6 @@ console.log(this.sendEmailData);
           from: 'test@example.com',
           subject: 'Sending with SendGrid is Fun',
           text: 'and easy to do anywhere, even with Node.js',
-          html: '<strong>and easy to do anywhere, even with Node.js</strong>',
         };
         const res$ = this.httpClient.post(
           'http://localhost:3000/api/sendmail',

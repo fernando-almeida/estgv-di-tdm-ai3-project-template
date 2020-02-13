@@ -9,3 +9,4 @@ export * from './supportRequest';
 export * from './supportResponse';
 export * from './userPreferencesChangeRequest';
 export * from './userProfile';
+export * from './sendEmailRequest';
