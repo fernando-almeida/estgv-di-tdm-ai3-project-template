@@ -1,26 +1,16 @@
-<div class="box">
-    <h2>Enviar Email</h2>
-    <form [formGroup]="sendEmailData">
-
-        <div class="form-group">
-            <label for="email">De:</label>
-            <input type="text" formControlName="email" class="form-control" />
-
-            <label for="email">Para:</label>
-            <input type="text" formControlName="email" class="form-control" />
-
-            <label for="email">Assunto:</label>
-            <input type="text" formControlName="email" class="form-control" />
-
-
-            <div class="md-form md-outline">
-                <label for="form75">Mensagem:</label>
-                <textarea id="form75" class="md-textarea form-control" rows="3"></textarea>
-
-            </div>
-
-
-        </div>
-        <button class="btn btn-dark" onclick="doLogin()">Enviar</button>
-    </form>
+<div class="Email">
+    <h1 class="titulo">Email</h1>
+    <div class="Info">
+        <form [formGroup]="sendEmailData">
+            <p class="textos">De</p>
+            <input class="text" type="text" name="De" value="" formControlName="from"><br>
+            <p class="textos">Para</p>
+            <input class="text" type="text" name="Para" value="" formControlName="to"><br>
+            <p class="textos">Assunto</p>
+            <input class="text" type="text" name="Assunto" value="" formControlName="subject"><br>
+            <p class="textos">Mensagem</p>
+            <input class="text2" type="text" name="Mensagem" value="" formControlName="message"><br>
+            <button class="submit" type="submit" onclick="sendEmail()">Enviar</button>
+        </form>
+    </div>
 </div>
