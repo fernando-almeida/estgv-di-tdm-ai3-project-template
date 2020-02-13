@@ -13,10 +13,7 @@ import { InterceptorService } from './interceptor.service';
 import { ExternalApiComponent } from './external-api/external-api.component';
 
 const routes: Routes = [
-  {
-    path: 'users',
-    loadChildren: () => import('./users/users.module').then(module => module.UsersModule)
-  },
+
   {
     path: '',
     component: HomeComponent,
