@@ -3,10 +3,10 @@ import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  templateUrl: './utilizadores.component.html',
+  styleUrls: ['./utilizadores.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class UtilizadoresComponent implements OnInit {
   profile:any
   constructor(public auth: AuthService) { }
 
