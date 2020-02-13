@@ -1,15 +1,28 @@
-<h1>Profile</h1>
 <pre *ngIf="auth.userProfile$ | async as profile">
-    <div class="row">
-        <div>
-            <img class="rounded-circle" style="width:50%" src="{{profile.picture}}">
+
+
+
+    <div class="card">
+        <h1>Profile</h1>
+
+        <!-- Card image -->
+        <div class="img">
+            <img class="rounded-circle" style="width:25%" src="{{profile.picture}}">
         </div>
-        <div >
-                <h3>{{profile.nickname}}</h3>
-                <p>Nome:{{profile.name}}</p>
-                <p>Email:{{profile.email}}</p>
-                <p>Email verificação:{{profile.email_verified}}</p>
+      
+    
+        <div class="card-body card-body-cascade">
+      
+          <!-- Label -->
+          <h4 class="pink-text pb-2 pt-1"><i class="fas fa-utensils"></i>{{profile.nickname}} </h4>
+
+          <h5 class="font-weight-bold card-title">Nome:{{profile.name}}</h5>
+          <h5 class="font-weight-bold card-title">Email:{{profile.email}}</h5>
+          <h5 class="font-weight-bold card-title">Email verificação:{{profile.email_verified}}</h5>
+          
+      
         </div>
-        
-    </div>
+      
+      </div>
+
 </pre>

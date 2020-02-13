@@ -1,3 +1,30 @@
-.btn btn-secondary{
-    align-items: center !important;
+.card{
+    width: 50%;
+    height: 550px;
+    margin-left: 25%;
+    margin-top: -3.5%;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(180, 178, 178, 0.77);
+    -moz-box-shadow:    4px 4px 5px rgba(180, 178, 178, 0.77);
+    box-shadow:         4px 4px 5px rgba(180, 178, 178, 0.77);
+}
+h1{
+    top: 5%;
+    text-align: center;
+    margin-top: 5px;
+}
+.img{
+    position:absolute;
+    margin-top: 7%;
+    left: 3%;
+
+}
+h4{
+    margin-top: 15%;
+}
+img{
+    -webkit-box-shadow: 4px 4px 5px rgba(180, 178, 178, 0.77);
+    -moz-box-shadow:    4px 4px 5px rgba(180, 178, 178, 0.77);
+    box-shadow:         4px 4px 5px rgba(180, 178, 178, 0.77);
 }

@@ -1,9 +1,55 @@
 form{
-    width: 35%;
+    width: 50%;
     position: relative;
-    left: 32%;
+    left: 25%;
+}
+.form2{
+  
+    display: flex;
 }
 h2{
-    position: relative;
-    left: 45%;
+    top: 5%;
+    text-align: center;
+    margin-top: 5px;
+}
+.box{
+    
+    height: 55%;
+    width: 45%;
+    right: 28%;
+    position: absolute;
+    border: solid 0.5px ;
+    border-color: rgb(204, 193, 193);
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(180, 178, 178, 0.77);
+    -moz-box-shadow:    4px 4px 5px rgba(180, 178, 178, 0.77);
+    box-shadow:         4px 4px 5px rgba(180, 178, 178, 0.77);
+}
+.btn{
+    border-radius: 5px;
+    width: 48%;
+    
+    margin-bottom: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+label{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.bla{
+    margin-left: 3px;
+    margin-right: 3px;
+}
+.btn1{
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 48%;
+    margin-bottom: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+    height: 50px;
+    -webkit-box-shadow: 3px 3px 5px rgba(180, 178, 178, 0.77);
+    -moz-box-shadow:    3px 3px 5px rgba(180, 178, 178, 0.77);
+    box-shadow:         3px 3px 5px rgba(180, 178, 178, 0.77);
 }
