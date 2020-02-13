@@ -31,13 +31,18 @@ import {EmailComponent} from './email/email.component';
 import {ApoioComponent} from './apoio/apoio.component';
 import { ExternalApiComponent } from './external-api/external-api.component';
 import { PushNotificationService } from 'ngx-push-notifications';
-import { UtilizadoresComponent } from './utilizadores/utilizadores.component';
-import { ServiceWorkerModule } from '@angular/service-worker';
+
 
 
 /**
  * Build API configuration
  */
+function buildApiConfiguration() {
+  const configurationParameters: ConfigurationParameters = {};
+  // TODO: Token should be injected using HTTP Interceptor pattern (@see link in Moodle)
+  const config = new Configuration(configurationParameters);
+  return config;
+}
 
 @NgModule({
   declarations: [
@@ -53,7 +58,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     EmailComponent,
     ExternalApiComponent,
     ApoioComponent,
-    UtilizadoresComponent,
     
   ],
   imports: [
@@ -72,7 +76,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
+    ApiModule.forRoot(buildApiConfiguration),
   ],
   providers: [
     // Hard-coded on API *Service classes but can be overriden here

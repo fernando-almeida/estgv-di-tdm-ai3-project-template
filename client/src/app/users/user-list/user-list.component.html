@@ -1,0 +1,17 @@
+<div class="actions">
+  <button mat-icon-button (click)="usersList.selectAll()">
+    <mat-icon>select_all</mat-icon>
+  </button>
+  <button mat-icon-button (click)="usersList.deselectAll()">
+    <mat-icon>clear_all</mat-icon>
+  </button>
+  <mat-divider [vertical]="true"></mat-divider>
+  <button mat-icon-button (click)="btnDeleteClicked(usersList.selectedOptions)">
+    <mat-icon color="warn">delete</mat-icon>
+  </button>
+</div>
+<mat-selection-list #usersList>
+  <mat-list-option *ngFor="let user of users$ | async" [value]="user">
+    <a title="View user details" [routerLink]="['/', 'users', user.id]">{{ user.name }}</a>
+  </mat-list-option>
+</mat-selection-list>

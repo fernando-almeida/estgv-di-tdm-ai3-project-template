@@ -1,0 +1,9 @@
+.user-filter-form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  & > *:not(:first-child) {
+    margin-left: 16px;
+  }
+}

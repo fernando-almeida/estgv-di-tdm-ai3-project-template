@@ -1,0 +1,23 @@
+<form class="user-filter-form" [formGroup]="filterForm">
+  <mat-form-field class="search-text">
+    <input matInput placeholder="Search text" formControlName="searchText" />
+  </mat-form-field>
+
+  <mat-form-field class="search-name">
+    <input matInput placeholder="Name" formControlName="nameContains" />
+  </mat-form-field>
+  <mat-form-field class="search-email">
+    <input matInput placeholder="Email" formControlName="emailContains" />
+  </mat-form-field>
+  <div class="actions">
+    <button mat-icon-button (click)="btnClearClicked($event)">
+      <mat-icon>clear</mat-icon>
+    </button>
+    <button mat-icon-button (click)="btnRefreshClicked($event)">
+      <mat-icon>refresh</mat-icon>
+    </button>
+    <button mat-icon-button (click)="btnSearchClicked($event)">
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+</form>

@@ -1,0 +1,8 @@
+<h1>Users management</h1>
+<button mat-fab (click)="btnCreateUserClicked($event)" style="position: fixed; bottom: 16px; right: 16px">
+  <mat-icon>create</mat-icon>
+</button>
+<app-user-filter [formControl]="userFilterFormControl" (search)="onSearch($event)" (refresh)="onRefresh($event)">
+</app-user-filter>
+
+<app-user-list [users$]="users$"></app-user-list>
