@@ -1,0 +1,39 @@
+form{
+    width: 50%;
+    position: relative;
+    left: 25%;
+
+}
+h2{
+    text-align: center;
+    margin-top: 20px;
+}
+.box{
+    
+    height: 70%;
+    width: 45%;
+    right: 28%;
+    position: absolute;
+    border: solid 0.5px ;
+    border-color: rgb(204, 193, 193);
+    border-radius: 5px;
+    -webkit-box-shadow: 4px 4px 5px rgba(180, 178, 178, 0.77);
+    -moz-box-shadow:    4px 4px 5px rgba(180, 178, 178, 0.77);
+    box-shadow:         4px 4px 5px rgba(180, 178, 178, 0.77);
+}
+.btn{
+    border-radius: 5px;
+    width: 48%;
+    
+    margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 10px;
+
+    -webkit-box-shadow: 4px 4px 5px rgba(180, 178, 178, 0.77);
+    -moz-box-shadow:    4px 4px 5px rgba(180, 178, 178, 0.77);
+    box-shadow:         4px 4px 5px rgba(180, 178, 178, 0.77);
+}
+input{
+    border-radius: 1px;
+}

@@ -28,6 +28,7 @@ import {LogintesteComponent} from './loginteste/loginteste.component';
 import {RegistarComponent} from './registar/registar.component';
 import {MudarPassComponent} from './mudar-pass/mudar-pass.component';
 import {EmailComponent} from './email/email.component';
+import {ApoioComponent} from './apoio/apoio.component';
 import { ExternalApiComponent } from './external-api/external-api.component';
 import { PushNotificationService } from 'ngx-push-notifications';
 import { UtilizadoresComponent } from './utilizadores/utilizadores.component';
@@ -58,6 +59,7 @@ export function buildApiConfiguration() {
     EmailComponent,
     ExternalApiComponent,
     UtilizadoresComponent,
+    ApoioComponent,
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import {LogintesteComponent} from './loginteste/loginteste.component';
 import{RegistarComponent} from './registar/registar.component';
 import{MudarPassComponent} from './mudar-pass/mudar-pass.component';
 import{EmailComponent} from './email/email.component';
+import{ApoioComponent} from './apoio/apoio.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './interceptor.service';
 import { ExternalApiComponent } from './external-api/external-api.component';
@@ -49,6 +50,10 @@ const routes: Routes = [
   {
     path: 'email',
     component: EmailComponent
+  },
+  {
+    path: 'apoio',
+    component: ApoioComponent
   },
   {
     path: 'external-api',

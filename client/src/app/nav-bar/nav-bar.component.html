@@ -24,10 +24,10 @@
                     <a class="nav-link" routerLink="email" *ngIf="auth.loggedIn">Mandar email</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a>
+                    <a class="nav-link" routerLink="apoio" *ngIf="auth.loggedIn">Fale Connosco</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="material-layout" *ngIf="auth.loggedIn">material-layout</a>
+                    <a class="nav-link" href="#" (click)="auth.logout()" *ngIf="auth.loggedIn">Log Out</a>
                 </li>
 
             </ul>

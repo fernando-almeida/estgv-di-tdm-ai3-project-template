@@ -5,6 +5,7 @@ import { tap, flatMap, take } from 'rxjs/operators';
 import { from } from 'rxjs';
 import { FormGroup, FormControl } from '@angular/forms';
 
+
 @Component({
   selector: 'app-email',
   templateUrl: './email.component.html',

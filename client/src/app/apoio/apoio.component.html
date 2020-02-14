@@ -1,0 +1,15 @@
+<div class="box">
+    <h1>Fale connosco</h1>
+    <div class="Info">
+        <form [formGroup]="supportForm">
+            <p class="textos">De</p>
+            <input class="form-control" type="text" name="De" value="" formControlName="email"><br>
+            <p class="textos">Assunto</p>
+            <input class="form-control" type="text" name="Assunto" value="" formControlName="subject"><br>
+            <p class="textos">Mensagem</p>
+            <input class="md-textarea form-control" type="text" name="Mensagem" value="" formControlName="message"
+                rows="3"><br>
+            <button class="btn btn-dark" type="submit" (click)="doSupport()">Enviar</button>
+        </form>
+    </div>
+</div>
