@@ -4,23 +4,23 @@
 
         <div class="form-group">
             <label for="email">De:</label>
-            <input type="text" formControlName="email" class="form-control" />
+            <input type="text" formControlName="to" class="form-control" />
 
-            <label for="email">Para:</label>
-            <input type="text" formControlName="email" class="form-control" />
+            <label for="from">Para:</label>
+            <input type="text" formControlName="from" class="form-control" />
 
-            <label for="email">Assunto:</label>
-            <input type="text" formControlName="email" class="form-control" />
+            <label for="subject">Assunto:</label>
+            <input type="text" formControlName="subject" class="form-control" />
 
 
             <div class="md-form md-outline">
-                <label for="form75">Mensagem:</label>
+                <label for="text">Mensagem:</label>
                 <textarea id="form75" class="md-textarea form-control" rows="3"></textarea>
 
             </div>
 
 
         </div>
-        <button class="btn btn-dark" onclick="doLogin()">Enviar</button>
+        <button class="btn btn-dark" (click)="sendEmail()">Enviar</button>
     </form>
 </div>
